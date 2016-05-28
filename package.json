@@ -1,0 +1,28 @@
+{
+  "name": "jeffops-frontend",
+  "version": "1.0.0",
+  "description": "React frontend for JeffOps",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.9.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "balalaika": "^1.0.0",
+    "bluebird": "^3.4.0",
+    "express": "^4.13.4",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-mixin": "^2.0.2",
+    "react-rethinkdb": "^0.5.5",
+    "rethinkdb-websocket-server": "^0.5.1"
+  },
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "JeffOps team",
+  "license": "MIT"
+}
