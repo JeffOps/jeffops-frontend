@@ -11,6 +11,8 @@
     "balalaika": "^1.0.0",
     "bluebird": "^3.4.0",
     "express": "^4.13.4",
+    "lodash": "^4.13.1",
+    "moment": "^2.13.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
     "react-mixin": "^2.0.2",
@@ -21,6 +23,7 @@
     "webpack": "^1.13.1"
   },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "JeffOps team",
