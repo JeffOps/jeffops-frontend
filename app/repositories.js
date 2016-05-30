@@ -23,13 +23,12 @@ class Repositories extends React.Component {
     let projectDivs = _(this.data.repositories.value())
       .orderBy("pushed_at", "desc")
       .map(x => {
-        return <tr key={x.id}>
-          <td><a href={x.html_url}>{x.name}</a></td>
-          <td>{x.versions.production}</td>
-          <td>{x.versions.staging}</td>
-          <td>{x.versions.testing}</td>
-          <td>{moment(x.pushed_at).format("lll")}</td>
-        </tr>
+        return <Repo
+          key={x.id}
+          name={x.name}
+          id={x.id}
+          versions={x.versions}
+          url={x.html_url}/>
     }).value();
     return <table className="u-full-width">
       <thead>
@@ -47,6 +46,27 @@ class Repositories extends React.Component {
     </table>;
   }
 };
+
+class Repo extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.props = props
+  }
+
+  render() {
+    return (
+      <tr>
+        <td><a href={this.props.url}>{this.props.name}</a></td>
+        <td>{this.props.versions.production}</td>
+        <td>{this.props.versions.staging}</td>
+        <td>{this.props.versions.testing}</td>
+        <td>{moment(this.props.pushed_at).format("lll")}</td>
+      </tr>
+    )
+  }
+}
+
 reactMixin(Repositories.prototype, ReactRethinkdb.DefaultMixin);
 
 export default Repositories;
