@@ -1,12 +1,14 @@
-import React from "react";
-import reactMixin from "react-mixin";
-import ReactRethinkdb from "react-rethinkdb";
-import moment from "moment";
-import _ from "lodash";
+import React from "react"
+import reactMixin from "react-mixin"
+import ReactRethinkdb from "react-rethinkdb"
+import moment from "moment"
+import _ from "lodash"
 
-import db from "./db";
+import { Link } from 'react-router'
 
-moment.locale("en-gb");
+import db from "./db"
+
+moment.locale("en-gb")
 
 class Repositories extends React.Component {
   observe(props, state) {
@@ -16,7 +18,7 @@ class Repositories extends React.Component {
         changes: true,
         initial: [],
       }),
-    };
+    }
   }
 
   render() {
@@ -29,7 +31,7 @@ class Repositories extends React.Component {
           id={x.id}
           versions={x.versions}
           url={x.html_url}/>
-    }).value();
+    }).value()
     return <table className="u-full-width">
       <thead>
         <tr>
@@ -43,9 +45,9 @@ class Repositories extends React.Component {
       <tbody>
         {projectDivs}
       </tbody>
-    </table>;
+    </table>
   }
-};
+}
 
 class Repo extends React.Component {
 
@@ -57,7 +59,7 @@ class Repo extends React.Component {
   render() {
     return (
       <tr>
-        <td><a href={this.props.url}>{this.props.name}</a></td>
+        <td><Link to={`/info/${this.props.name}`}> {this.props.name}</Link></td>
         <td>{this.props.versions.production}</td>
         <td>{this.props.versions.staging}</td>
         <td>{this.props.versions.testing}</td>
@@ -67,6 +69,6 @@ class Repo extends React.Component {
   }
 }
 
-reactMixin(Repositories.prototype, ReactRethinkdb.DefaultMixin);
+reactMixin(Repositories.prototype, ReactRethinkdb.DefaultMixin)
 
-export default Repositories;
+export default Repositories
